@@ -26,6 +26,17 @@
 
 <div class="container">
   <h2>Striped Rows</h2>
+  <form action="/?action=findName" method="get">
+    <div class="input-group" style="width: 250px;">
+      <input type="text" class="form-control" placeholder="tìm kiếm" name="findName" style="width: 226px;">
+      <input type="text" hidden name="action" value="findName">
+      <div class="input-group-btn">
+        <button type="submit" class="btn btn-info">Find</button>
+
+      </div>
+    </div>
+  </form>
+
   <table class="table table-striped">
     <thead>
     <th>id</th>
@@ -61,17 +72,6 @@
 
       </tbody>
     </c:forEach>
-    <form action="/?action=findName" method="get">
-      <div class="input-group" style="width: 250px;">
-        <input type="text" class="form-control" placeholder="tìm kiếm" name="findName" style="width: 226px;">
-        <input type="text" hidden name="action" value="findName">
-        <div class="input-group-btn">
-          <button class="btn btn-default" type="submit" style="width: 42px;height: 34px;"><i
-                  class="glyphicon glyphicon-search"></i></button>
-        </div>
-      </div>
-    </form>
-
   </table>
 </div>
 
