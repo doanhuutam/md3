@@ -54,11 +54,24 @@
         <td><a href="/?action=create" class="btn btn-info">Create</a></td>
         <td><a href="/?action=delete&index=${loop.index}" class="btn btn-info">Delete</a></td>
         <td><a href="/?action=edit&index=${loop.index}" class="btn btn-info">Edit</a></td>
+
+
       </tr>
 
 
       </tbody>
     </c:forEach>
+    <form action="/?action=findName" method="get">
+      <div class="input-group" style="width: 250px;">
+        <input type="text" class="form-control" placeholder="tìm kiếm" name="findName" style="width: 226px;">
+        <input type="text" hidden name="action" value="findName">
+        <div class="input-group-btn">
+          <button class="btn btn-default" type="submit" style="width: 42px;height: 34px;"><i
+                  class="glyphicon glyphicon-search"></i></button>
+        </div>
+      </div>
+    </form>
+
   </table>
 </div>
 

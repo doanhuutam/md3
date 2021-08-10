@@ -1,10 +1,10 @@
-service/SanphamService.java
- service.SanphamService
-dao/CrudSanPham.java
- dao.CrudSanPham
-model/SanPham.java
- model.SanPham
 dao/ConnectionCsdl.java
  dao.ConnectionCsdl
+model/SanPham.java
+ model.SanPham
+service/SanphamService.java
+ service.SanphamService
 servlet/SanPhamServlet.java
  servlet.SanPhamServlet
+dao/CrudSanPham.java
+ dao.CrudSanPham

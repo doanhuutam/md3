@@ -41,7 +41,7 @@ public class CrudSanPham {
 
     }
 
-    public void editSp(SanPham sanPham) throws SQLException {
+    public void editSp(int index, SanPham sanPham) throws SQLException {
         String sqledit = "update sanpham set tensp=? , gia=? , soluong=? , mausac=?,mota=?,iddanhmuc=? where id=?";
         PreparedStatement preparedStatement = connection.prepareStatement(sqledit);
         preparedStatement.setInt(7, sanPham.getId());
@@ -61,6 +61,25 @@ public class CrudSanPham {
         preparedStatement.execute();
 
     }
+    public  ArrayList<SanPham> findByName(String findName) throws SQLException {
+        ArrayList<SanPham> findList = new ArrayList<>();
+        String findByName = "select * from sanpham where tensp like '%" + findName + "%'";
+        PreparedStatement preparedStatement = connection.prepareStatement(findByName);
+        ResultSet resultSet = preparedStatement.executeQuery();
+
+        while (resultSet.next()) {
+            int id = resultSet.getInt("id");
+            String tensp = resultSet.getString("tensp");
+            int gia = resultSet.getInt("gia") ;
+            int soluong = resultSet.getInt("soluong");
+            String mausac = resultSet.getString("mausac");
+            String mota = resultSet.getString("mota");
+            int iddanhmuc = resultSet.getInt("iddanhmuc");
+            findList.add(new SanPham(id,tensp,gia,soluong,mausac,mota,iddanhmuc));
+
+        }
+        return findList;
 
 
+}
 }

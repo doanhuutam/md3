@@ -23,7 +23,7 @@ public class SanPhamServlet extends HttpServlet {
         }
         switch (action){
             case "create":
-                resp.sendRedirect("/");
+                resp.sendRedirect("view/create.jsp");
                 break;
             case "delete":
                 int index = Integer.parseInt(req.getParameter("index"));
@@ -36,6 +36,13 @@ public class SanPhamServlet extends HttpServlet {
                 requestDispatcher=req.getRequestDispatcher("view/edit.jsp");
                 requestDispatcher.forward(req,resp);
                 break;
+            case "findName":
+                String name = req.getParameter("findName");
+                    req.setAttribute("ahihi", sanphamService.findByName(name));
+                    requestDispatcher = req.getRequestDispatcher("index.jsp");
+                    requestDispatcher.forward(req, resp);
+                break;
+
             default:
                 sanphamService.showSp();
                 req.setAttribute("ahihi",sanphamService.list);
@@ -75,7 +82,8 @@ public class SanPhamServlet extends HttpServlet {
                 String motaedit = req.getParameter("mota");
                 int iddanhmucedit = Integer.parseInt(req.getParameter("iddanhmuc"));
                 SanPham sanPhamedit = new SanPham(idedit, tenspedit, giaedit, soluongedit, mausacedit, motaedit, iddanhmucedit);
-                sanphamService.editSp(sanPhamedit);
+                int indexedit= Integer.parseInt(req.getParameter("index"));
+                sanphamService.editSp(sanPhamedit,indexedit);
                 resp.sendRedirect("/");
                 break;
 

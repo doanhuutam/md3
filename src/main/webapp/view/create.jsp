@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,6 +19,19 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
+<form action="/?action=findName" method="get">
+    <table>
+    <div class="input-group" style="width: 250px;">
+        <input type="text" class="form-control" placeholder="tìm kiếm" name="findName" style="width: 226px;">
+        <input type="text" hidden name="action" value="findName">
+        <div class="input-group-btn">
+            <button type="submit" class="btn btn-info">Find</button>
+
+        </div>
+    </div>
+    </table>
+</form>
+
 
 <div class="container">
     <h2>Striped Rows</h2>
